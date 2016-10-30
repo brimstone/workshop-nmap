@@ -45,7 +45,8 @@ this level. TCP and UDP use *ports*.
 ---------
 Addressing, Routing, and Traffic Control.
 
-IP (Internet Protocol) operates at this level.
+IP (Internet Protocol) and ICMP (Internet Control Message Protocol) operate at
+this level.
 
 2 Data Link
 -----------
