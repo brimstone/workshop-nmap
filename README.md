@@ -29,8 +29,8 @@ Sections
 1. [OSI Model](1-osi-model.md)
 2. [Client to Server Communication](2-client-to-server.md)
 3. [TCP & ICMP](3-tcp-icmp.md)
-4. [What to scan, reading your network information, CIDR format](4-identification.md)
-5. [Understand nmap options for ping scans, tcp scans, os detection, logging to a file](5-options.md)
+4. [Identifying Youself and Your Network](4-identification.md)
+5. [Scan Options](5-options.md)
 
 Resources
 ---------
