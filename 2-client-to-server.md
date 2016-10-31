@@ -5,18 +5,11 @@ Packet Header Diagrams
 ----------------------
 
 As mentioned in the [OSI Model](1-osi-model.md), data is encapsulated in
-different formats. Here are the headers of a TCP/IP packet and a ICMP packet.
+different formats. Here are the headers of a IP packet.
 
 ### IP Packet Header
 
 [![](2-ipv4-header.png)](https://nmap.org/book/tcpip-ref.html)
-
-### TCP Packet Header
-
-[![](2-tcp-header.png)](https://nmap.org/book/tcpip-ref.html)
-
-### ICMP Packet Header
-[![](2-icmp-header.png)](https://nmap.org/book/tcpip-ref.html)
 
 What Happens When…
 ------------------
@@ -53,16 +46,6 @@ MAC to its external MAC, and passes it on. Since this is a TCP packet, your
 operating system, your router, all of the routers in between you and Google's
 servers, and Google's webserver have to agree that a session has been
 established.
-
-There's a handshake that happens, to establish a socket. Your system sends a
-SYN packet, a TCP packet with the SYN flag set, to Google's servers. Google
-responds with a matching TCP packet, but with the ACK flag set as well. Your
-system then sends a matching packet with just the ACK flag back and a session
-is established. The remainder of the packets in this session only have the ACK
-flag set. When either side is ready to close the session, a packet with the FIN
-flag set is sent. It is ACKed, then the final ACK packet is sent in reply.
-
-[![](2-tcp-handshake.gif)](http://www.masterraghu.com/subjects/np/introduction/unix_network_programming_v1.3/ch02lev1sec6.html)
 
 ### HTTP Request
 
