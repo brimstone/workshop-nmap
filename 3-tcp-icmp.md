@@ -8,10 +8,10 @@ The two types of IP packets discussed in this section are TCP and ICMP.
 
 ### TCP Packet Header
 
-[![](2-tcp-header.png)](https://nmap.org/book/tcpip-ref.html)
+[![](3-tcp-header.png)](https://nmap.org/book/tcpip-ref.html)
 
 ### ICMP Packet Header
-[![](2-icmp-header.png)](https://nmap.org/book/tcpip-ref.html)
+[![](3-icmp-header.png)](https://nmap.org/book/tcpip-ref.html)
 
 TCP Handshake
 -------------
@@ -24,7 +24,7 @@ is established. The remainder of the packets in this session only have the ACK
 flag set. When either side is ready to close the session, a packet with the FIN
 flag set is sent. It is ACKed, then the final ACK packet is sent in reply.
 
-[![](2-tcp-handshake.gif)](http://www.masterraghu.com/subjects/np/introduction/unix_network_programming_v1.3/ch02lev1sec6.html)
+[![](3-tcp-handshake.gif)](http://www.masterraghu.com/subjects/np/introduction/unix_network_programming_v1.3/ch02lev1sec6.html)
 
 What happens when there isn't a server listening on that TCP port? The remote
 computer replies to the SYN packet with a packet with only RST flags set.
