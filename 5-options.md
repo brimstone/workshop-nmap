@@ -1,7 +1,7 @@
 nmap Options
 ============
 
-nmap has a ton, TON, of options. Read more about them with `man nmap`, or [in
+nmap has a ton, TON, of options. Read more about them with `man nmap` or [in
 the book](https://nmap.org/book/man-briefoptions.html)
 
 My favorite options are `-vv -oG scan.out -A`
@@ -55,4 +55,4 @@ even going into a deep dive on some of them.
 
 Try to find all of the webservers on the network.
 
-_Hint: They will have port 80 open_
+_Hint: They will have port 80 open._
