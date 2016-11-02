@@ -26,7 +26,6 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 0  bytes 0 (0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
 ```
 
 `ipconfig` output on Windows:
@@ -51,7 +50,7 @@ Ethernet adapter Ethernet:
    DHCP Enabled. . . . . . . . . . . : Yes
    Autoconfiguration Enabled . . . . : Yes
    Link-local IPv6 Address . . . . . : fe80::4516:c43a:e475:9a86%12(Preferred)
-   IPv4 Address. . . . . . . . . . . : 94.202.195.198(Preferred)
+   IPv4 Address. . . . . . . . . . . : 192.168.0.100(Preferred)
    Subnet Mask . . . . . . . . . . . : 255.255.255.0
    Lease Obtained. . . . . . . . . . : Wednesday, October 06, 2010 8:14:50 PM
    Lease Expires . . . . . . . . . . : Wednesday, October 06, 2010 8:19:49 PM
@@ -65,10 +64,10 @@ Ethernet adapter Ethernet:
    NetBIOS over Tcpip. . . . . . . . : Enabled
 ```
 
-The main things used in this lab is the `inet 192.168.0.100 netmask 255.255.255.0`
-line. This is the IP address of the linux system used in the example. The
-netmask portion is used by the Operating System to know which IPs are local to
-this system, and which need to be directed to the default gateway.
+The main thing used in this lab is the `inet 192.168.0.100 netmask 255.255.255.0`
+line. This is the IP address of both systems used in the example. The netmask
+portion is used by the Operating System to know which IPs are local to this
+system, and which need to be directed to the default gateway.
 
 CIDR (Classless Inter-Domain Routing) Notation
 ----------------------------------------------
@@ -82,7 +81,7 @@ to and from CIDR notation. The main thing we need to know here is the following:
 nmap supports CIDR notation and also ranges. The following range could also be
 used as input to nmap:
 
-- 192.168.0.100/255.255.255.0 => 192.168.0.0-254
+- 192.168.0.100/255.255.255.0 => 192.168.0.1-254
 
 
 Your first scan
@@ -90,8 +89,25 @@ Your first scan
 
 How to scan the network with nmap
 
-`nmap -sP`
+`nmap -sP 192.168.0.1-254`
 
 How to scan all of the ports on a system with nmap
 
 `nmap $target`
+
+Results
+```
+Starting Nmap 7.31 ( https://nmap.org ) at 2016-11-01 20:19 EDT
+Nmap scan report for target (192.168.0.101)
+Host is up (0.0011s latency).
+Not shown: 997 filtered ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+1024/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 4.65 seconds
+```
+
+By default, nmap uses a "Connect Scan" where it sends SYN packets, waits for the
+ACK, then ACKs back, and opens a session. nmap immediately closes the session.
